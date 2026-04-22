@@ -2,8 +2,8 @@ FROM php:8.3-cli
 
 RUN apt-get update && apt-get install -y \
     git unzip libpng-dev libjpeg-dev libfreetype6-dev libzip-dev \
-    && docker-php-ext-install gd zip
-
+    && docker-php-ext-install gd zip pdo pdo_mysql
+    
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
